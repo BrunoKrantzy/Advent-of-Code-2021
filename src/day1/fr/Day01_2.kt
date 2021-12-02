@@ -1,3 +1,6 @@
+
+package day1.fr
+
 import java.io.File
 
 fun readInputInt(name: String) = File("src", "$name.txt").readLines().map { it.toInt() }

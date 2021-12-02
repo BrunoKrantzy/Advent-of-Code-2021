@@ -1,3 +1,6 @@
+
+package day1.fr
+
 fun main() {
 
     val testInput = readInput("input")
