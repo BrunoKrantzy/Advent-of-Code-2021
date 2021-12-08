@@ -21,15 +21,41 @@ fun readInput(name: String) = File("src", "$name.txt").readLines()
 
 fun main() {
 
-    var rep = 0
+    var rep = 0L
 
     //val vIn = readInput("test8")
     val vIn = readInput("input8")
 
-    var lstIn = vIn[0].split(',').map { it.toInt() } as MutableList
-    lstIn.sort()
+    // val regex = "^([a-g]{1,7})\\s([a-g]{1,7})\\s([a-g]{1,7})\\s([a-g]{1,7})\\s([a-g]{1,7})\\s([a-g]{1,7})
+    // \\s([a-g]{1,7})\\s([a-g]{1,7})\\s([a-g]{1,7})\\s([a-g]{1,7})\\s\\|\\s([a-g]{1,7})\\s([a-g]{1,7})\\s
+    // ([a-g]{1,7})\\s([a-g]{1,7})\$".toRegex()
+    val regex = "^\\s|([a-g]{1,7})\\s([a-g]{1,7})\\s([a-g]{1,7})\\s([a-g]{1,7})\$".toRegex()
 
+    var lstP = mutableListOf<String>()
+    vIn.forEach {
+        val match = regex.find(it)
+        val s1 = match!!.groups[1]!!.value
+        lstP.add(s1)
+        val s2 = match.groups[2]!!.value
+        lstP.add(s2)
+        val s3 = match.groups[3]!!.value
+        lstP.add(s3)
+        val s4 = match.groups[4]!!.value
+        lstP.add(s4)
 
+        lstP.forEach { item ->
+            when (item.length) {
+                2 -> rep++
+                4 -> rep++
+                3 -> rep++
+                7 -> rep++
+            }
+        }
+        lstP.clear()
+
+    }
+
+    println(rep)
 }
 
 
