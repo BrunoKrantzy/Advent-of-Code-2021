@@ -64,6 +64,7 @@ fun main() {
 
         if (xy == "y") { // pli hauteur
             var dif = (nHaut - vXY) * 2
+            var difSize = dif / 2
             for (i in nHaut downTo vXY) {
                 for (j in 0 .. nLarg) {
                     if (tabTrans[i][j] != '.') {
@@ -72,8 +73,7 @@ fun main() {
                 }
                 dif -= 2
             }
-            //nHaut = (nHaut - 1) / 2
-            nHaut = (nHaut - vXY) - 1
+            nHaut = nHaut - (difSize + 1)
         }
         else { // pli largeur
             for (i in 0 .. nHaut) {
@@ -89,7 +89,6 @@ fun main() {
         }
     }
 
-
     for (i in 0 .. nHaut) {
         for (j in 0 .. nLarg) {
             if (tabTrans[i][j] == '#') {
@@ -99,7 +98,6 @@ fun main() {
         }
         print("\n")
     }
-
 
     println(rep)
 }
