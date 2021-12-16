@@ -42,7 +42,7 @@ fun main() {
         mapRules[rDuo] = rIns
     }
 
-    var nbSteps = 40
+    var nbSteps = 10
     for (i in 1..nbSteps) {
         var strT = sTemplate.toString()
         sTemplate.clear()
