@@ -21,19 +21,19 @@ fun readInput(name: String) = File("src", "$name.txt").readLines()
 
 fun main() {
 
-    //val vIn = readInput("input6")
-    val vIn = readInput("test6")
+    val vIn = readInput("input6")
+    //val vIn = readInput("test6")
 
     var lstFish = vIn[0].split(',').map { it.toInt() } as MutableList
     var lstWork = mutableListOf<Int>()
 
     var rep = 0L
-    val nJours = 18
+    val nJours = 80
 
-    for (i in 1 .. nJours) {
+    for (i in (1 .. nJours).asSequence()) {
         var nbFish = lstFish.size
 
-        for (j in 0 until nbFish) {
+        for (j in (0 until nbFish).asSequence()) {
             var vCycle = lstFish[j]
             if (vCycle == 0) {
                 lstWork.add(6)
